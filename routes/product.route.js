@@ -6,6 +6,9 @@ productRouteGroup.route("/products")
 .get(productController.getMany)
 .post(productController.createOne)
 
+productRouteGroup.route("/productCategory/:id")
+.get(productController.getCategory);
+
 productRouteGroup.route("/products/:id")
 .get(productController.getOne)
 .delete(productController.deleteOne)

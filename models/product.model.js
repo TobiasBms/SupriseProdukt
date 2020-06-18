@@ -32,9 +32,6 @@ const productSchema = new mongoose.Schema({
   }
 })
 
-//Making sure the index is unquie and the name also
-productSchema.index({ category: 1, name: 1 }, { unique: true })
-
 //Validation for the schema to get better error messages
 productSchema.plugin(mongooseUniqueValidator);
 

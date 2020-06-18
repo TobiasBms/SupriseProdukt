@@ -1,17 +1,17 @@
 import Router from "express";
-const routeGroup = Router();
+const catregoryRouteGroup = Router();
 import categoryController from "../controllers/category.controller";
 
 //category
-routeGroup
+catregoryRouteGroup
 .route("/category")
 .get(categoryController.getMany)
 .post(categoryController.createOne);
 
-routeGroup
+catregoryRouteGroup
 .route("/category/:id")
 .get(categoryController.getOne)
 .put(categoryController.updateOne)
 .delete(categoryController.deleteOne)
 
-export default routeGroup; 
+export default catregoryRouteGroup; 

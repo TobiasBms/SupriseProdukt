@@ -24,6 +24,45 @@ export const getOne = model => async (req, res) => {
   }
 };
 
+
+export const showCategories = (model) => async(req,res) => {
+  try {
+      const product = await model.find({"category": req.params.id}).count();
+      const test = await model.find().where()
+      console.log(test);
+      
+      res.status(200).json({Instock: product});
+  } catch (e) {
+    console.error(e.message);
+    res.status(400).end();
+  }
+};
+
+/*export const showStock = (model) => async(req,res) => {
+  try {
+      const stock = await model.find();
+      res.status(200)
+  } catch (e) {
+    console.error(e.message);
+    res.status(400).end();
+  }
+}*/
+
+export const getCategory = (model) => async(req,res) => {
+  try {
+      const product = await model.find({"category": req.params.id}).count();
+      const productOfTheCategory = await model.find({"category": req.params.id});
+      
+      res.status(200).json({Instock: product, products: [
+        ...productOfTheCategory
+      ]});
+  
+    } catch (e) {
+    console.error(e.message);
+    res.status(400).end();
+  }
+}
+
 //I use two callback functions so I can keep my model and the req,res objects in scope.
 export const getMany = (model) => async (req, res) => {
   try {
@@ -101,7 +140,8 @@ const crudController = model => ({
   getOne: getOne(model),
   createOne: createOne(model),
   updateOne: updateOne(model),
-  deleteOne: deleteOne(model)
+  deleteOne: deleteOne(model),
+  getCategory: getCategory(model)
 });
 
 export default crudController;
