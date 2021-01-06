@@ -14,7 +14,7 @@
     "@babel/cli": "^7.10.1",
     "@babel/core": "^7.10.2",
     "@babel/polyfill": "^7.10.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "express": "^4.17.1",
     "mongoose": "^5.9.19",
     "mongoose-unique-validator": "^2.0.3"
